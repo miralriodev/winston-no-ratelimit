@@ -17,12 +17,11 @@ const winston = require('winston');
 dotenv.config();
 
 // Constants
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const JWT_SECRET = process.env.JWT_SECRET || 'miralhu';
+const SERVER_ID = 2;
 
 // ===== MIDDLEWARE SETUP =====
-// Eliminamos la configuración de rate limiting
-
 // Logger configuration
 const logger = winston.createLogger({
     level: 'info',
@@ -75,6 +74,7 @@ const requestLogger = (req, res, next) => {
             userAgent: req.get('user-agent'),
             protocol: req.protocol,
             hostname: req.hostname,
+            serverId: SERVER_ID, // Añadimos el identificador de servidor
             system: {
                 nodeVersion: process.version,
                 environment: process.env.NODE_ENV || 'development',
