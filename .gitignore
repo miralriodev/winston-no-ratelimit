@@ -1,0 +1,11 @@
+node_modules/
+.env
+.DS_Store
+npm-debug.log*
+dist/
+*.log
+
+# Firebase credentials
+config/serviceAccountKey.json
+config/serviceAccountKey-stroke.json
+config/serviceAccountKey-*.json
